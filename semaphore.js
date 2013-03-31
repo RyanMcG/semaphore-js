@@ -30,14 +30,6 @@
     }
   };
 
-  Semaphore.wrap = function (key, callback) {
-    var semaphore = new this(key);
-    if (!semaphore.isLocked()) {
-      semaphore.lock()
-      callback(semaphore);
-    }
-  };
-
   var conflictingSemaphore = context.Semaphore;
 
   Semaphore.noConflict = function () {
@@ -46,4 +38,4 @@
   };
 
   context.Semaphore = Semaphore;
-});
+})(this);
